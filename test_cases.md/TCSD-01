@@ -1,0 +1,28 @@
+function launchApplication() {
+  it('Visits saucedemo.applitools', () => {
+    cy.visit('https://www.saucedemo.com/');
+
+    function enterUsername(username) {
+      cy.get('#username').type(standard_user);
+    }
+
+    function enterPassword(password) {
+      cy.get('#password').type(secret_sauce);
+    }
+
+    function clickLoginButton() {
+      cy.get('button').click();
+    }
+
+    function verifyLoginSuccess() {
+      cy.contains('logout').click();
+    }
+
+    enterUsername('username');
+    enterPassword('password');
+    clickLoginButton();
+    verifyLoginSuccess();
+  });
+}
+
+launchApplication();
