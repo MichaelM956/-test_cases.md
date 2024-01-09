@@ -1,28 +1,20 @@
-function launchApplication() {
-    it('Visits saucedemo.applitools', () => {
-      cy.visit('https://www.saucedemo.com/');
+describe('SauceDemo Login and Validation Test', () => {
+  it('should login and validate Sauce Labs Backpack', () => {
   
-      function enterUsername(username) {
-        cy.get('#username').type(standard_user);
-      }
-  
-      function enterPassword(password) {
-        cy.get('#password').type(secret_sauce);
-      }
-  
-      function clickLoginButton() {
-        cy.get('button').click();
-      }
-  
-      function verifyLoginSuccess() {
-        cy.contains('logout').click();
-      }
-  
-      enterUsername('username');
-      enterPassword('password');
-      clickLoginButton();
-      verifyLoginSuccess();
-    });
-  }
-  
-  launchApplication();
+    cy.visit('https://www.saucedemo.com/');
+
+    
+    cy.get('#user-name').type('standard_user');
+
+    
+    cy.get('#password').type('secret_sauce');
+
+    
+    cy.get('#login-button').click();
+
+    
+    cy.contains('Sauce Labs Backpack').should('be.visible');
+
+   
+  });
+});
