@@ -3,23 +3,24 @@ function launchApplication() {
     cy.visit('https://www.saucedemo.com/');
 
     function enterUsername(username) {
-      cy.get('#username').type(standard_user);
+      cy.get('#user-name').type(username); 
     }
 
     function enterPassword(password) {
-      cy.get('#password').type(secret_sauce);
+      cy.get('#password').type(password);
     }
 
     function clickLoginButton() {
-      cy.get('button').click();
+      cy.get('#login-button').click(); 
     }
 
     function verifyLoginSuccess() {
-      cy.contains('logout').click();
+      cy.contains('Logout').click(); 
     }
 
-    enterUsername('username');
-    enterPassword('password');
+    
+    enterUsername('standard_user');
+    enterPassword('secret_sauce');
     clickLoginButton();
     verifyLoginSuccess();
   });
