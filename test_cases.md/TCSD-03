@@ -1,14 +1,19 @@
 describe('Shopping Cart Test', () => {
   it('should add Sauce Labs Onesie to the cart and change quantity', () => {
-    // 1. Navigate to Item = Sauce Labs Onesie
+    
     cy.visit('https://www.saucedemo.com/');
-    cy.contains('Sauce Labs Onesie').click();
 
-    // 2. Click on Add to Cart
+  
+    cy.contains('Sauce Labs Onesie').click();
     cy.contains('ADD TO CART').click();
 
-    // 3. Proceed to navigating to Cart icon function
+    
     cy.get('#shopping_cart_container').click();
 
-    // 4. Proceed to changing quantity of an item
-    cy.get('.cart_quantity_input').clear().type('2'); 
+    
+    cy.get('.cart_quantity_input')
+      .clear()
+      .type('2')
+      .should('have.value', '2'); 
+  });
+});
