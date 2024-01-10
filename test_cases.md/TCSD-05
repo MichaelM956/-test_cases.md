@@ -1,28 +1,13 @@
-function launchApplication() {
-    it('Visits saucedemo.applitools', () => {
-      cy.visit('https://www.saucedemo.com/');
-  
-      function enterUsername(username) {
-        cy.get('#username').type(standard_user);
-      }
-  
-      function enterPassword(password) {
-        cy.get('#password').type(secret_sauce);
-      }
-  
-      function clickLoginButton() {
-        cy.get('button').click();
-      }
-  
-      function verifyLoginSuccess() {
-        cy.contains('logout').click();
-      }
-  
-      enterUsername('username');
-      enterPassword('password');
-      clickLoginButton();
-      verifyLoginSuccess();
-    });
-  }
-  
-  launchApplication();
+describe('SauceDemo Shopping Test', () => {
+  it('should add Sauce Labs Onesie to cart and validate Checkout button', () => {
+    
+    cy.visit('https://www.saucedemo.com/');
+    cy.contains('Sauce Labs Onesie').click();
+
+     cy.contains('ADD TO CART').click();
+
+    cy.get('#shopping_cart_container').click();
+
+    cy.get('a.btn_action.checkout_button').should('be.visible');
+  });
+});
