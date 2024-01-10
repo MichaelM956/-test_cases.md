@@ -17,7 +17,7 @@ TCSD-03
 3	 Proceed to navigating to	 Add  to cart menu
 4	 Procced to changing	quantity of an item
 
-TCSD=-04
+TCSD-04
 1	 Navigate to login page	User= https://www.saucedemo.com/
 2	 Provide valid username	User name : standard_user
 3	 Provide valid password	Password: secret_sauce
